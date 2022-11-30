@@ -1,5 +1,7 @@
 package word_count_utils;
 
+import wordcount.utils.DictionaryWrapper;
+import wordcount.utils.WordSeperator;
 import junit.framework.TestCase;
 import org.junit.Test;
 

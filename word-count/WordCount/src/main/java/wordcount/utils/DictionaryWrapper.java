@@ -1,9 +1,9 @@
-package word_count_utils;
+package wordcount.utils;
 
 import java.util.TreeMap;
 
 public class DictionaryWrapper {
-
+/*
     private TreeMap<String, Integer> dictionary;
 
     public DictionaryWrapper() {
@@ -58,5 +58,5 @@ public class DictionaryWrapper {
 
     public String toString(){
         return dictionary.toString();
-    }
+    }*/
 }

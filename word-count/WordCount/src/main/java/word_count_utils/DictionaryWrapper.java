@@ -18,38 +18,32 @@ public class DictionaryWrapper {
 
     }
 
-    public void countWord(String word){
-        if(dictionary.containsKey(word)){
-            dictionary.replace(word, dictionary.get(word)+1);
-        }
-        else{
-            dictionary.put(word,1);
-        }
+    public TreeMap<String, Integer> countWords(String... words){
+        for(String word: words){
+            if(dictionary.containsKey(word)){
+                dictionary.replace(word, dictionary.get(word)+1);
 
+            }
+            else{
+                dictionary.put(word,1);
+            }
+        }
+        this.dictionary.remove("");
+        return this.dictionary;
     }
 
-    public void countWordCaseInsensitive(String word){
-        word=word.toLowerCase();
-        if(dictionary.containsKey(word)){
-            dictionary.replace(word, dictionary.get(word)+1);
+    public TreeMap<String, Integer> countWordsCaseInsensitive(String... words){
+        for(String word: words){
+            word=word.toLowerCase();
+            if(dictionary.containsKey(word)){
+                dictionary.replace(word, dictionary.get(word)+1);
+            }
+            else{
+                dictionary.put(word,1);
+            }
         }
-        else{
-            dictionary.put(word,1);
-        }
-
-    }
-
-    public void countAll(String[] words){
-        for(String s: words){
-            countWord(s);
-        }
-    }
-
-    public void countAllCaseInsensitive(String[] words){
-        for(String s: words){
-            s=s.toLowerCase();
-            countWord(s);
-        }
+        this.dictionary.remove("");
+        return this.dictionary;
     }
 
     public int getSize(){

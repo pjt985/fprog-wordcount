@@ -18,10 +18,10 @@ public class DictionaryWrapperTest extends TestCase {
     @Test
     public void testCountWord() {
 
-        wrapper.countWord(w3);
-        wrapper.countWord(w1);
-        wrapper.countWord(w2);
-        wrapper.countWord(w3);
+        wrapper.countWords(w3);
+        wrapper.countWords(w1);
+        wrapper.countWords(w2);
+        wrapper.countWords(w3);
 
         assertEquals(3, wrapper.getSize());
         assertEquals(1,wrapper.getValueFromKey(w1));
@@ -32,21 +32,22 @@ public class DictionaryWrapperTest extends TestCase {
     }
 
     public void testCountWordCaseInsensitive() {
-        wrapper.countWordCaseInsensitive(w1);
-        wrapper.countWordCaseInsensitive(w4);
+        wrapper.countWordsCaseInsensitive(w1);
+        wrapper.countWordsCaseInsensitive(w4);
 
         assertEquals(0,wrapper.getValueFromKey(w1));
         assertEquals(2,wrapper.getValueFromKey(w4));
     }
 
     public void testCountAll() {
-        wrapper.countAll(WordSeperator.getWordsFromString(testString));
-        wrapper.countAll(WordSeperator.getWordsFromString(testString2));
-        assertEquals(15, wrapper.getSize());
+        wrapper.countWords(WordSeperator.getWordsFromString(testString));
+        wrapper.countWords(WordSeperator.getWordsFromString(testString2));
+        System.out.println(wrapper);
+        assertEquals(16, wrapper.getSize());
     }
 
     public void testCountAllCaseInsensitive() {
-        wrapper.countAllCaseInsensitive(WordSeperator.getWordsFromString(testString3));
+        wrapper.countWordsCaseInsensitive(WordSeperator.getWordsFromString(testString3));
         System.out.println(wrapper);
         assertEquals(2, wrapper.getSize());
     }

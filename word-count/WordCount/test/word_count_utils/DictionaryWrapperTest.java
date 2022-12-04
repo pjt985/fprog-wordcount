@@ -43,7 +43,7 @@ public class DictionaryWrapperTest extends TestCase {
         wrapper.countWords(WordSeperator.getWordsFromString(testString));
         wrapper.countWords(WordSeperator.getWordsFromString(testString2));
         System.out.println(wrapper);
-        assertEquals(16, wrapper.getSize());
+        assertEquals(15, wrapper.getSize());
     }
 
     public void testCountAllCaseInsensitive() {

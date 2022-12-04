@@ -1,5 +1,8 @@
 package word_count_utils;
 
+import java.util.Comparator;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.TreeMap;
 
 public class DictionaryWrapper {
@@ -51,6 +54,10 @@ public class DictionaryWrapper {
     }
 
     public String toString(){
-        return dictionary.toString();
+        LinkedHashMap<String, Integer> reverseSortedMap = new LinkedHashMap<>();
+        dictionary.entrySet().stream()
+                .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
+                .forEachOrdered(x -> reverseSortedMap.put(x.getKey(), x.getValue()));
+        return reverseSortedMap.toString();
     }
 }

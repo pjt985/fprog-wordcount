@@ -21,7 +21,7 @@ public class DictionaryWrapper {
 
     }
 
-    public TreeMap<String, Integer> countWords(String... words){
+    public void countWords(String... words){
         for(String word: words){
             if(dictionary.containsKey(word)){
                 dictionary.replace(word, dictionary.get(word)+1);
@@ -32,10 +32,9 @@ public class DictionaryWrapper {
             }
         }
         this.dictionary.remove("");
-        return this.dictionary;
     }
 
-    public TreeMap<String, Integer> countWordsCaseInsensitive(String... words){
+    public void countWordsCaseInsensitive(String... words){
         for(String word: words){
             word=word.toLowerCase();
             if(dictionary.containsKey(word)){
@@ -46,7 +45,6 @@ public class DictionaryWrapper {
             }
         }
         this.dictionary.remove("");
-        return this.dictionary;
     }
 
     public int getSize(){

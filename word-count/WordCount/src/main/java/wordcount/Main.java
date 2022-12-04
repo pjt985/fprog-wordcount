@@ -72,6 +72,7 @@ public class Main {
         System.out.println("Result: ");
         finishUp(mapSens,"sens.txt");
         finishUp(mapInsens, "insens.txt");
+
     }
 
     public static boolean finishUp(Map<String, Map<String,Long>> map, String name){

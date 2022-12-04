@@ -9,12 +9,7 @@ public class ReaderWrapper {
         this.reader= new BufferedReader(new FileReader(new File(path)));
     }
 
-    public String getLine(){
-        try {
+    public String getLine() throws IOException {
             return reader.readLine();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return null;
     }
 }

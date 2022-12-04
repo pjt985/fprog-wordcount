@@ -4,6 +4,7 @@ import word_count_utils.WordSeperator;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.Reader;
 import java.time.LocalDateTime;
 import java.util.Date;
@@ -21,8 +22,13 @@ public class Main {
             e.printStackTrace();
         }
         DictionaryWrapper dictionary= new DictionaryWrapper();
-        String s;
-        while((s=wrapper.getLine())!=null){
+        String s="";
+        while(true){
+            try {
+                if (!((s=wrapper.getLine())!=null)) break;
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
             dictionary.countWords(WordSeperator.getWordsFromString(s));
         }
 

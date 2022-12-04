@@ -3,6 +3,7 @@ import word_count_utils.DictionaryWrapper;
 import word_count_utils.WordSeperator;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.Reader;
 import java.time.LocalDateTime;
 import java.util.Date;
@@ -13,7 +14,12 @@ public class Main {
 
         Date date= new Date();
         long oldMili= date.getTime();
-        ReaderWrapper wrapper= new ReaderWrapper("C:\\FH\\Sem5\\FPROG\\fprog-wordcount\\word-count\\WordCount\\src\\beispiel.txt");
+        ReaderWrapper wrapper= null;
+        try {
+            wrapper = new ReaderWrapper("C:\\FH\\Sem5\\FPROG\\fprog-wordcount\\word-count\\WordCount\\src\\beispiel.txt");
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
         DictionaryWrapper dictionary= new DictionaryWrapper();
         String s;
         while((s=wrapper.getLine())!=null){

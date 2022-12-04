@@ -5,12 +5,8 @@ import java.io.*;
 public class ReaderWrapper {
     BufferedReader reader;
 
-    public ReaderWrapper(String path) {
-        try {
-            this.reader= new BufferedReader(new FileReader(new File(path)));
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
+    public ReaderWrapper(String path) throws FileNotFoundException {
+        this.reader= new BufferedReader(new FileReader(new File(path)));
     }
 
     public String getLine(){
